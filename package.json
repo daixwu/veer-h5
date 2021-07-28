@@ -1,0 +1,25 @@
+{
+  "name": "veer-h5",
+  "version": "1.0.0",
+  "description": "A self - use scaffold based on webpack5",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --config build/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daixwu/veer-h5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daixwu/veer-h5/issues"
+  },
+  "homepage": "https://github.com/daixwu/veer-h5#readme",
+  "devDependencies": {
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
