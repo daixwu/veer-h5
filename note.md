@@ -236,7 +236,7 @@ module.exports = {
 ### sass-loader
 
 - 将scss编译为css，需安装node-sass
-- 安装: npm i sass-loader -D
+- 安装: npm i sass-loader node-sass -D
 
 ### postcss-loader
 
@@ -278,7 +278,7 @@ module.exports = {
 }
 ```
 
-- 安装: npm i postcss-loader -D
+- 安装: npm i postcss-loader postcss-preset-env -D
 
 ### css-loader
 

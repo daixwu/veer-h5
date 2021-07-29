@@ -1,0 +1,20 @@
+@import './modules/font.scss';
+
+body {
+  background-color: burlywood;
+  -webkit-overflow-scrolling: touch;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  font-family: 'flag';
+  backface-visibility:hidden;
+  background: url(../images/discover-active.png) 0 0 no-repeat;
+  background-size: cover;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
