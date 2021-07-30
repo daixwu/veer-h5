@@ -1,3 +1,8 @@
-import './assets/style/app.scss'
+// import './assets/style/app.scss'
 
-console.log('main.js')
+import { createApp } from 'vue'
+
+import App from './App.vue'
+import router from './router/router'
+
+createApp(App).use(router).mount('#app')

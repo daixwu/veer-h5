@@ -90,10 +90,10 @@ module.exports = (env = envDefaults) => ({
             ]
           },
           {
-            test: /\.(woff|woff2|eot|ttf|otf)$/i,
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
             type: 'asset/resource',
             generator: {
-              filename: 'fonts/[name].[hash:8][ext][query]'
+              filename: 'fonts/[name].[hash:8][ext]'
             }
           },
           {
@@ -115,7 +115,7 @@ module.exports = (env = envDefaults) => ({
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       // 复制html文件，并自动引入打包后的所有资源
-      template: resolve(__dirname, './public/index.html'),
+      template: resolve(__dirname, '../public/index.html'),
       filename: "index.html",
       // html 压缩配置
       // minify:{
