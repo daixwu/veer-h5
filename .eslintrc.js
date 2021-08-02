@@ -5,12 +5,14 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  parser: 'babel-eslint',
+  parser: 'vue-eslint-parser',
   parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   extends: [
-    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
     '@vue/standard'
   ],
   rules: {

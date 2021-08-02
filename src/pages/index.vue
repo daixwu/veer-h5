@@ -3,7 +3,7 @@
     <img src="../assets/images/logo.png" alt="" />
     <p class="title">{{ title }}</p>
     <van-button type="success">成功按钮</van-button>
-    <img src="../assets/images/test.jpg" alt="">
+    <img src="../assets/images/test.jpg" alt="" />
   </div>
 </template>
 <script>

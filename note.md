@@ -480,6 +480,8 @@ module.exports = {
 
 ## <span id="devServer">⚓️</span>开发服务配置 devServer
 
+> webpack-dev-server 会从 output.path 中定义的目录为服务提供 bundle 文件，即，文件将可以通过 `http://[devServer.host]:[devServer.port]/[output.publicPath]/[output.filename]` 进行访问。
+
 - 开发服务器 devServer 自动化编译、打开、刷新浏览器（只会在内存中编译打包，不会有任何输出）
 - 启动devServer指令为：npx webpack server
 

@@ -1,13 +1,13 @@
 {
   "name": "veer-h5",
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "A self - use scaffold based on webpack5",
   "main": "index.js",
   "scripts": {
-    "start": "webpack server",
-    "build": "webpack --env prod",
-    "dev": "webpack serve --config ./build/webpack.config.js  --color",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "webpack serve --config ./build/webpack.dev.conf.js --color",
+    "build": "webpack --config ./build/webpack.prod.conf.js --color"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,9 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-preset-vue": "^2.0.2",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
     "eslint": "^7.31.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
@@ -41,16 +43,19 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",
     "node-sass": "^6.0.1",
+    "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
     "postcss-preset-env": "^6.7.0",
     "postcss-px-to-viewport": "^1.1.1",
     "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
     "ts-loader": "^9.2.4",
     "typescript": "^4.3.5",
     "vue-loader": "^16.3.3",
     "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "browserslist": {
     "development": [
