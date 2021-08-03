@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const { DefinePlugin } = require('webpack')
+const WebpackBar = require('webpackbar')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -23,7 +24,7 @@ module.exports = (env = envDefaults) => {
       clean: true
     },
     resolve: {
-      extensions: ['.ts', '.js', '.vue', '.json'],
+      extensions: ['.js', '.vue', '.json'],
       alias: {
         'vue': '@vue/runtime-dom',
         '@': resolve(__dirname, './src'),
@@ -92,6 +93,7 @@ module.exports = (env = envDefaults) => {
       ]
     },
     plugins: [
+      new WebpackBar(),
       new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: resolve(__dirname, '../public/index.html'),

@@ -28,13 +28,15 @@ module.exports = merge(webpackConfigBase({prod: true}), {
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].[contenthash:8].css',
-			chunkFilename: 'css/[id].[contenthash:8].css',
+			chunkFilename: 'css/[name].[contenthash:8].chunk.css',
 		})
 	],
   optimization: {
     moduleIds: 'deterministic',
     minimizer: [
-      new TerserPlugin(),
+      new TerserPlugin({
+				parallel: true,
+			}),
       new CssMinimizerPlugin(),
     ],
     splitChunks: {
