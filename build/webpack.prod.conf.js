@@ -8,7 +8,6 @@ const webpackConfigBase = require('./webpack.base.conf')
 
 module.exports = merge(webpackConfigBase({prod: true}), {
   mode: 'production',
-  devtool: 'source-map',
   cache: {
 		type: 'filesystem',
 		buildDependencies: {
@@ -33,6 +32,7 @@ module.exports = merge(webpackConfigBase({prod: true}), {
 		})
 	],
   optimization: {
+    moduleIds: 'deterministic',
     minimizer: [
       new TerserPlugin(),
       new CssMinimizerPlugin(),

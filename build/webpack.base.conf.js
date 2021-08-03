@@ -3,21 +3,22 @@ const { DefinePlugin } = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin }  = require('vue-loader')
 
 const envDefaults = {
   prod: false,
 }
-
 module.exports = (env = envDefaults) => {
   return  {
     target: 'web',
+    stats: "errors-only",
     entry: {
       main: './src/main.js'
     },
     output: {
       path: resolve(__dirname, '../dist'),
-      filename: 'js/[name].[chunkhash].js',
+      filename: 'js/[name].[chunkhash:8].js',
       publicPath: env.prod === true ? './' : '/',
       clean: true
     },
@@ -34,10 +35,6 @@ module.exports = (env = envDefaults) => {
     },
     module: {
       rules: [
-        {
-          test : /\.vue$/,
-          use  : 'vue-loader',
-        },
         {
           oneOf: [
             {
@@ -75,17 +72,27 @@ module.exports = (env = envDefaults) => {
               }
             },
             {
-              test: /\.(png|jpg|jpeg|gif|svg)/,
-              type: 'asset/resource',
+              test: /\.(png|jpg|jpeg|gif|svg)$/,
+              type: 'asset',
+              parser: {
+                dataUrlCondition: {
+                  maxSize: 2 * 1024
+                }
+              },
               generator: {
                 filename: 'images/[name].[hash:8][ext]',
               },
             },
           ]
+        },
+        {
+          test : /\.vue$/,
+          use  : 'vue-loader',
         }
       ]
     },
     plugins: [
+      new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: resolve(__dirname, '../public/index.html'),
         filename: "index.html",
@@ -108,17 +115,7 @@ module.exports = (env = envDefaults) => {
         },
         __VUE_OPTIONS_API__   : JSON.stringify(true),
         __VUE_PROD_DEVTOOLS__ : JSON.stringify(env.prod !== false),
-      }),
-  
-      // new workboxWebpackPlugin.GenerateSW({
-      //   // 1、帮助 serviceWorker 快速启动
-      //   // 2、删除旧的 serviceWorker
-  
-      //   // 生成一个 serviceWorker 的配置文件（在入口js文件中做配置）
-      //   clientsClaim: true,
-      //   skipWaiting: true
-      // })
-      
+      })
     ],
     performance: {
       maxEntrypointSize: 50000000,

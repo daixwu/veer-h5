@@ -5,7 +5,7 @@ module.exports = merge(webpackConfigBase(), {
   mode:'development',
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    contentBase: '/dist',
+    contentBase: './dist',
     compress: true,
     port: 8008,
     open: true,

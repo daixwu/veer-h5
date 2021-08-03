@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="app"
-    class="App"
-  >
+  <div id="app" class="App">
     <div
       v-if="!$route.meta.hide"
       id="nav"
@@ -39,4 +36,27 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" src='./assets/style/app.scss'></style>
+<style lang="scss">
+#app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    font-family: "flag";
+}
+#nav {
+  padding: 20px 0;
+    a {
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 32px;
+        &.router-link-exact-active {
+            color: red;
+        }
+    }
+}
+h3 {
+    font-size: 18px;
+}
+</style>

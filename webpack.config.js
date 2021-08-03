@@ -11,7 +11,7 @@ const TerserPlugin = require("terser-webpack-plugin")
 const envDefaults = {
   prod: false,
 }
-
+debugger
 module.exports = (env = envDefaults) => ({
   target: 'web',
   mode: env.prod === true ? 'production' : 'development',
